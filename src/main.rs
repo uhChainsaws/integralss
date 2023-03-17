@@ -1,9 +1,8 @@
-#![allow(unused)]
 #![allow(non_snake_case)]
 
 use std::str::FromStr;
 
-use nannou::{prelude::*, text::Font};
+use nannou::{prelude::*};
 use nannou_egui::{self, egui::{self, Align2}, Egui};
 use rand::prelude::*;
 
@@ -30,7 +29,7 @@ struct Model {
     egui: Egui,
 }
 
-fn update(app: &App, model: &mut Model, update: Update) {
+fn update(_app: &App, model: &mut Model, update: Update) {
     egui_majjikks(model, update)
 }
 fn egui_majjikks(model: &mut Model, update: Update){
@@ -86,7 +85,7 @@ fn view(app: &App, model: &Model, frame: Frame) {
         x.unwrap_or(0.).abs().partial_cmp(&y.unwrap_or(0.).abs()).unwrap()
     ).unwrap().unwrap();
 
-    let vw = (model.b-model.a);
+    let vw = model.b-model.a;
     let vh = 2.*max_y_deviation.abs();
     let scale_x = app.window_rect().w()/(model.view_zoom*vw);
     let scale_y = app.window_rect().h()/(vh*model.view_zoom);
@@ -175,7 +174,7 @@ fn view(app: &App, model: &Model, frame: Frame) {
                     width*scale_x,
                     height*scale_y
                 )
-                .color(if (this_area > 0.) {
+                .color(if this_area > 0. {
                     hsla(
                         120./360.,
                         0.7,
@@ -232,7 +231,7 @@ fn model(app: &App) -> Model {
     let egui = Egui::from_window(&window);
     fn f (x: &f32) -> Option<f32>{
         Some(-x.powi(3) + 2.0 * x)
-    };
+    }
     Model { 
         f,
         n: 20,
