@@ -1,8 +1,5 @@
 # лаба: интегрируем
-
 by Кравчук Владислав N3147
-
-----------
 
 ## a demonstration:
 |     |     |
@@ -16,3 +13,4 @@ by Кравчук Владислав N3147
 
 `a` and `b` fields of the `Model` are used for integration limits
 
+to build simply `git.clone` the repo, `cd` into it and run `cargo run --release`
