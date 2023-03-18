@@ -232,6 +232,7 @@ fn model(app: &App) -> Model {
     fn f (x: &f32) -> Option<f32>{
         Some(-x.powi(3) + 2.0 * x)
     }
+    
     Model { 
         f,
         n: 20,
