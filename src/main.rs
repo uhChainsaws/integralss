@@ -38,7 +38,7 @@ fn egui_majjikks(model: &mut Model, update: Update){
     egui.set_elapsed_time(update.since_start);
     let ctx = egui.begin_frame();
     
-    egui::Window::new("settings").anchor(Align2::RIGHT_BOTTOM, [-20.,-20.]).show(&ctx, |ui| {
+    egui::Window::new("settings").anchor(Align2::LEFT_TOP, [20.,20.]).show(&ctx, |ui| {
         ui.add(egui::Slider::new(&mut model.n, 1..=2000).text("n"));
         ui.add(egui::Slider::new(&mut model.a, -10.0..=model.b-0.1).text("a"));
         ui.add(egui::Slider::new(&mut model.b, model.a+0.1..=10.0).text("b"));
